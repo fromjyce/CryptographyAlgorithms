@@ -1,5 +1,4 @@
-function return_enc_key(i, key, array) {
-  const index = array.indexOf(i);
+function return_enc_key(key, index) {
   const num = index + (key % 26);
   return num;
 }
@@ -7,19 +6,20 @@ function return_enc_key(i, key, array) {
 function read_plaintext(key) {
   var result = "";
   const alphabets = [];
-  for (let i = 97; i <= 122; i++) {
-    alphabets.push(String.fromCharCode(i).toUpperCase());
+  for (let i = 65; i <= 90; i++) {
+    alphabets.push(String.fromCharCode(i));
   }
   var plain_text = prompt("Enter a plain text: ");
   var plain_text_upper = plain_text.toUpperCase();
   const plain_array = plain_text_upper.split("");
   for (let i = 0; i < plain_array.length; i++) {
-      for (let j = 0; j < alphabets.length; j++) {
-        if (plain_array[i] === alphabets[j]) {
-          var enc_key = return_enc_key(plain_array[i], key, alphabets);
-          result += alphabets[enc_key];
-        }
+    for (let j = 0; j < alphabets.length; j++) {
+      if (plain_array[i] === alphabets[j]) {
+        const plains = plain_array[i];
+        var enc_key = return_enc_key(key, alphabets.indexOf(plains));
+        result += alphabets[enc_key];
       }
+    }
   }
   console.log("Encrypted Text: " + result);
 }
