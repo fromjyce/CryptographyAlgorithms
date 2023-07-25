@@ -4,39 +4,40 @@ public class OneTimePadCipher {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String new_word = "";
-        int[] random_text_index = new int[0];
-        int[] plain_text_index = new int[0];
-        int[] new_word_index = new int[0];
-        char[] alphabets = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        int[] random_text_index;
+        int[] plain_text_index;
+        int[] new_word_index;
+        char[] alphabets = "abcdefghijklmnopqrstuvwxyz".toUpperCase().toCharArray();
         System.out.print("Enter the plain text: ");
-        String plain_text = scan.nextLine();
+        String plain_text = scan.nextLine().trim().replaceAll(" ", "");
         System.out.print("Enter the random text: ");
-        String random_text = scan.nextLine();
+        String random_text = scan.nextLine().trim().replaceAll(" ", "");
         if (plain_text.length()==random_text.length()) {
-            for(char c: plain_text.toCharArray()) {
+            int length = random_text.length();
+            plain_text_index = new int[length];
+            random_text_index = new int[length];
+            new_word_index = new int[length];
+
+            for(int k = 0; k < length; k++) {
+                char c = plain_text.toUpperCase().charAt(k);
                 for(int i =0; i<alphabets.length; i++) {
                     if(alphabets[i]==c) {
-                        plain_text_index = AddElement(i, plain_text_index);
+                        plain_text_index[k] = i;
+                        break;
                     }
                 }
             }
-            for(char c: random_text.toCharArray()) {
+            for(int k = 0; k < length; k++) {
+                char c = random_text.toUpperCase().charAt(k);
                 for(int i =0; i<alphabets.length; i++) {
                     if(alphabets[i]==c) {
-                        random_text_index = AddElement(i, random_text_index);
+                        random_text_index[k] = i;
+                        break;
                     }
                 }
             }
-            for(int i=0; i<random_text.length(); i++) {
-                if(random_text_index[i]+plain_text_index[i]<26)
-                    {
-                        int newnum = random_text_index[i]+plain_text_index[i];
-                        new_word_index = AddElement(newnum, new_word_index);
-                    }
-                else {
-                        int new_num = (random_text_index[i]+plain_text_index[i])-26;
-                        new_word_index = AddElement(new_num, new_word_index);
-                }
+            for(int i=0; i<length; i++) {
+                        new_word_index[i] = (random_text_index[i]+plain_text_index[i])%26;
             }
             for (int m: new_word_index){
                 new_word = new_word + alphabets[m];
