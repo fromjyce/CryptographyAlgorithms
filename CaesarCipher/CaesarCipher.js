@@ -6,30 +6,20 @@ function return_enc_key(i, key, array) {
 
 function read_plaintext(key) {
   var result = "";
-  const lowercaseAlphabets = [];
-  const uppercaseAlphabets = [];
+  const alphabets = [];
   for (let i = 97; i <= 122; i++) {
-    lowercaseAlphabets.push(String.fromCharCode(i));
-    uppercaseAlphabets.push(String.fromCharCode(i).toUpperCase());
+    alphabets.push(String.fromCharCode(i).toUpperCase());
   }
   var plain_text = prompt("Enter a plain text: ");
-  const plain_array = plain_text.split("");
+  var plain_text_upper = plain_text.toUpperCase();
+  const plain_array = plain_text_upper.split("");
   for (let i = 0; i < plain_array.length; i++) {
-    if (plain_array[i] === plain_array[i].toUpperCase()) {
-      for (let j = 0; j < uppercaseAlphabets.length; j++) {
-        if (plain_array[i] === uppercaseAlphabets[j]) {
-          var enc_key = return_enc_key(plain_array[i], key, uppercaseAlphabets);
-          result += uppercaseAlphabets[enc_key];
+      for (let j = 0; j < alphabets.length; j++) {
+        if (plain_array[i] === alphabets[j]) {
+          var enc_key = return_enc_key(plain_array[i], key, alphabets);
+          result += alphabets[enc_key];
         }
       }
-    } else {
-      for (let j = 0; j < lowercaseAlphabets.length; j++) {
-        if (plain_array[i] === lowercaseAlphabets[j]) {
-          var enc_key = return_enc_key(plain_array[i], key, lowercaseAlphabets);
-          result += lowercaseAlphabets[enc_key];
-        }
-      }
-    }
   }
   console.log("Encrypted Text: " + result);
 }
