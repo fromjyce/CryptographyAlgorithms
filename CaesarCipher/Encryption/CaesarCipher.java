@@ -27,5 +27,6 @@ public class CaesarCipher {
             }
             System.out.println("Encrypted Word: " + new_word);
         }
+        scan.close();
     }
 }
