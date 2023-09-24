@@ -20,7 +20,7 @@ void removeSpaces(char *str) {
     *dest = '\0';
 }
 int main() {
-    int key,j,num,enc_key;
+    int key,j,num,dec_key;
     char word[100], new_word[100] = "";
     printf("Enter the key: ");
     scanf("%d", &key);
@@ -40,8 +40,8 @@ int main() {
                         if (toupper(word[i])==alphabets[j])
                             {
                                 num = j;
-                                enc_key = generate_dec_key(num,key);
-                                strncat(new_word,&alphabets[enc_key], 1);
+                                dec_key = generate_dec_key(num,key);
+                                strncat(new_word,&alphabets[dec_key], 1);
                             }
                     }
                 }
