@@ -15,7 +15,7 @@ def generate_mapped_key_lower(key):
         mapped_dict_lower[alphabets[i]] = key[i]
     mapped_dict_lower[" "] = " "
     return mapped_dict_lower
-    
+
 def generate_enc_key(plain_text, key):
     mapped_key_upper = generate_mapped_key_upper(key)
     mapped_key_lower = generate_mapped_key_lower(key.lower())
