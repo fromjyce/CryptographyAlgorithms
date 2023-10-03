@@ -44,6 +44,9 @@ public class OneTimePadCipher {
             }
             System.out.println("Encrypted Word: " + new_word);
         }
+        else {
+            System.out.print("Invalid Lengths");
+        }
     }
     public static int[] AddElement(int key, int[] array) {
         int[] newArray = new int[array.length + 1];
