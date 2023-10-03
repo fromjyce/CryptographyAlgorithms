@@ -51,7 +51,7 @@ int main() {
             }
         }
         for (int i=0; i<length; i++) {
-            new_word_arr[i] = (cipher_text_arr[i] - random_key_arr[i])%26;   
+            new_word_arr[i] = (cipher_text_arr[i] - random_key_arr[i] + 26)%26;   
         }
         for (int i = 0; i < length; i++) {
             new_word[i] = alphabets[new_word_arr[i]];
