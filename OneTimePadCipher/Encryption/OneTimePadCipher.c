@@ -59,6 +59,9 @@ int main() {
             }
         printf("Encrypted Word: %s", new_word);
     }
+    else {
+        printf("Different Lengths");
+    }
     
     return 0;
 }
