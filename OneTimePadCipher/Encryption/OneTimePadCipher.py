@@ -20,3 +20,5 @@ if len(plain_text) == len(random_key):
     for j in new_word_index:
         new_word.append(alphabets[j])
     print("Encrypted Word: " + "".join(new_word).upper())
+else:
+    print("Invalid Key")
