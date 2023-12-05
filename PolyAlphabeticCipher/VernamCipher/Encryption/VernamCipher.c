@@ -51,11 +51,10 @@ int main() {
             }
         }
         for (int i=0; i<length; i++) {
-            new_word_arr[i] = (random_key_arr[i]^plain_text_arr[i]);   
+            new_word_arr[i] = (random_key_arr[i]^plain_text_arr[i])%26;   
         }
-        for (int i=0; i<length; i++)
-            {
-                strncat(new_word,&alphabets[new_word_arr[i]], 1);
+        for (int i = 0; i < length; i++) {
+            new_word[i] = alphabets[new_word_arr[i]];
             }
         printf("Encrypted Word: %s", new_word);
     }
