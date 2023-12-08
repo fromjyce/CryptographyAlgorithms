@@ -1,5 +1,3 @@
-package VernamCipher;
-
 import java.util.*;
 public class VernamCipher {
     public static void main(String[] args) {
@@ -38,13 +36,14 @@ public class VernamCipher {
                 }
             }
             for(int i=0; i<length; i++) {
-                        new_word_index[i] = (random_text_index[i]^plain_text_index[i]);
+                        new_word_index[i] = (random_text_index[i] ^ plain_text_index[i]);
             }
             for (int m: new_word_index){
                 new_word = new_word + alphabets[m];
             }
             System.out.println("Encrypted Word: " + new_word);
         }
+        scan.close();
     }
     public static int[] AddElement(int key, int[] array) {
         int[] newArray = new int[array.length + 1];
