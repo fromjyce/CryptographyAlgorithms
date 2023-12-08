@@ -11,7 +11,7 @@ function index_array(array, alpharray) {
   return return_array;
 }
 
-function OneTimePadCipher(plain, random) {
+function VernamCipher(plain, random) {
   var result = "";
   const alphabets = [];
   for (let i = 65; i <= 90; i++) {
@@ -33,7 +33,7 @@ function read_input() {
   var plain_text = prompt("Enter the plain text: ").toUpperCase().split("");
   var random_key = prompt("Enter the random key: ").toUpperCase().split("");
   if (plain_text.length === random_key.length) {
-    console.log(OneTimePadCipher(plain_text, random_key));
+    console.log(VernamCipher(plain_text, random_key));
   } else {
     console.log("Enter a valid plain text and random key pair");
   }
