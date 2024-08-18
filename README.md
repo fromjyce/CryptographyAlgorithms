@@ -1,8 +1,6 @@
 # Cryptography Algorithms
 A repository hosting a diverse range of code snippets and complete programs for cryptographic algorithms, personally authored during my third semester.
 
-## Structure of the Repository
-
 ## Running the Programs
 The programs have been tested on the Visual Studio Code IDE in Windows 11.
 ***You are free to choose any IDE that suits your needs.***
